@@ -16,8 +16,6 @@ class Articulo_model extends CI_Model {
 			$this->db->join('responsables', 'responsables.res_id = articulos.res_id');
 			$this->db->order_by("art_descripcion", "asc"); 
 			$query = $this->db->get();
-			 
-
 			return $query->result_array();
 		}
 
@@ -55,7 +53,7 @@ class Articulo_model extends CI_Model {
 			);
 
 		$this->db->insert('articulos', $data);
-
+		
 		$data = array('dep_id' => '0',
 			'art_id' => $this->db->insert_id(),
 			'his_tipo' => 'Alta',
@@ -135,6 +133,11 @@ class Articulo_model extends CI_Model {
 	public function del_articulo($id)
 	{
 		return $this->db->delete('articulos', array('art_id' => $id)); 
+	}
+
+		public function del_articulo_historial($id)
+	{
+		return $this->db->delete('historicos', array('his_id' => $id)); 
 	}
 	public function buscar()
 	{

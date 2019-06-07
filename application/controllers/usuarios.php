@@ -39,10 +39,10 @@ class Usuarios extends CI_Controller {
 		public function nuevo()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('login', 'usu_login', 'required|is_unique[usuarios.usu_login]');
-		$this->form_validation->set_rules('nombre', 'usu_nombre', 'required|max_length[45]');
-		$this->form_validation->set_rules('apellido', 'usu_apellido', 'required|max_length[45]');
-		$this->form_validation->set_rules('password', 'usu_password', 'required|max_length[10]');
+		$this->form_validation->set_rules('usu_login', 'Login', 'required|is_unique[usuarios.usu_login]');
+		$this->form_validation->set_rules('usu_nombre', 'Nombre', 'required|max_length[45]');
+		$this->form_validation->set_rules('usu_apellido', 'Apellido', 'required|max_length[45]');
+		$this->form_validation->set_rules('usu_password', 'Password', 'required|max_length[10]');
 
 
 
@@ -64,13 +64,13 @@ class Usuarios extends CI_Controller {
 	public function editar($id)
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('password', 'usu_pasword', 'required|max_length[45]');
+		$this->form_validation->set_rules('usu_password', 'pasword', 'required|max_length[45]');
 
 		if ($this->form_validation->run() == FALSE)
 			{
 				$data['menu']="usuarios";
 				$this->load->view('cabecera',$data);
-				$data['id_usuario'] = $id;
+				$data['usu_id'] = $id;
 				$this->load->view('usuarios/editar',$data);
 				$this->load->view('pie');
 			}

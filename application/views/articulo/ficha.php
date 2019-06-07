@@ -103,6 +103,7 @@
                 <th>Destino</th>                
                 <th>Originador</th>
                 <th>Observación</th>
+                <th></th>
               </tr>
             </tr>
           </thead>
@@ -116,7 +117,7 @@
               <td><?php echo $historial_item['dep_nombre']; ?></td>
               <td><?php echo $historial_item['usu_login']; ?></td>
               <td><?php echo $historial_item['his_observacion']; ?></td>
-              
+             <td><a id="confirmar"  onclick="return confirmar()" href="<?php echo base_url()."articulo/eliminarhistorial/".$historial_item['his_id']."/".$historial_item['art_id']?>">Eliminar</a></td>
             </tr>
             <?php $i++; endforeach ?>
           </tbody>

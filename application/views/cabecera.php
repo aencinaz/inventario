@@ -36,8 +36,11 @@
             padding: 15px 100px 5px 50px;
             float: right;
             font-size: 16px;"> 
-                     
+            
+            <?php date_default_timezone_set('America/Argentina/Buenos_Aires'); ?>        
             <?php echo  date("d") . " / " . date("M") . " / " . date("Y"); ?>&nbsp;
+
+
                   <div class="btn-group">
                         <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><?php echo $this->session->userdata('login'); ?>  <span class="caret"></span></button>
                         <ul class="dropdown-menu">

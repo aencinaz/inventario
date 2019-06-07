@@ -27,7 +27,7 @@ class usuario_model extends CI_Model {
 		$data = array('usu_login' => $this->input->post('usu_login'),
 				'usu_nombre' => $this->input->post('usu_nombre'),
 				'usu_apellido' => $this->input->post('usu_apellido'),
-				'usu_password' => $this->input->post('usu_password'),
+				'usu_password' => md5($this->input->post('usu_password')),
 				'usu_perfil' => $this->input->post('usu_perfil')		
 			);
 		return $this->db->insert('usuarios', $data);

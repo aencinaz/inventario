@@ -6,7 +6,7 @@
   </ul>
   <!-- /. breadcrumb  -->
   <hr />  
-  <?php echo form_open(base_url().'usuarios/ficha') ?>
+  <?php echo form_open(base_url().'usuarios/editar') ?>
    
  <div id="signupbox" style=" margin-top:5px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">

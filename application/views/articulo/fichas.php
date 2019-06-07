@@ -48,6 +48,7 @@
               <td><?php echo $articulos['res_apellido']." ".$articulos['res_nombre']; ?></td>
               <td><?php echo $articulos['pro_nombre']; ?></td>
               <td><a href="<?php echo base_url()."articulo/ficha/".$articulos['art_id']?>">Ficha</a></td>
+          >
             </tr>
             <?php $i++; endforeach ?>
           </tbody>

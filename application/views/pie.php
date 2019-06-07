@@ -126,6 +126,13 @@
     });
 
    
+   function confirmar()
+{
+    if(confirm('¿Estas seguro de eliminar este elemento ?'))
+        return true;
+    else
+        return false;
+}
 
     </script>
 
