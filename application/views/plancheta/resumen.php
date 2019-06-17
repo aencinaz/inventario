@@ -5,12 +5,7 @@
       <li class="active">Plancheta Dependencia</li>
     </ul>
     <!-- /. breadcrumb  -->
-    
-    
     <hr />  
-
-
-
     <!-- Advanced Tables -->
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -38,8 +33,8 @@
             <tr>
               <td><?php echo $i; ?></td>
         
-              <td><?php echo $articulos['art_nombre']; ?></td>
-              <td><?php echo $articulos['art_cantidad']; ?></td>
+              <td><?php echo $articulos['cla_nombre']; ?></td>
+              <td><?php echo $articulos['cantidad']; ?></td>
          
             
             </tr>
