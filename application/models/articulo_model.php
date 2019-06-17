@@ -135,8 +135,9 @@ class Articulo_model extends CI_Model {
 		return $this->db->delete('articulos', array('art_id' => $id)); 
 	}
 
-		public function del_articulo_historial($id)
+		public function del_articulo_historial()
 	{
+		$id=$this->input->post('cla_id')
 		return $this->db->delete('historicos', array('his_id' => $id)); 
 	}
 	public function buscar()

@@ -137,7 +137,13 @@
     </script>
 
 
-
+<script>
+ function myBtn(his_id){
+    var elem = document.getElementById('his_id');
+    elem.value=his_id;
+    $("#myModal").modal();
+  };
+</script>
 
 
     

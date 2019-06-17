@@ -171,10 +171,10 @@ class Articulo extends CI_Controller {
 		redirect(base_url()."articulo", 'refresh');
 	}
 
-		public function eliminarhistorial($id_histo,$id_articulo)
+		public function eliminarhistorial()
 	{
 		
-		$this->articulo_model->del_articulo_historial($id_histo);
+		$this->articulo_model->del_articulo_historial();
 		redirect(base_url()."articulo/ficha/".$id_articulo, 'refresh');
 	}
 

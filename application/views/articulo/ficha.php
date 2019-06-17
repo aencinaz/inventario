@@ -117,7 +117,7 @@
               <td><?php echo $historial_item['dep_nombre']; ?></td>
               <td><?php echo $historial_item['usu_login']; ?></td>
               <td><?php echo $historial_item['his_observacion']; ?></td>
-             <td><a id="confirmar"  onclick="return confirmar()" href="<?php echo base_url()."articulo/eliminarhistorial/".$historial_item['his_id']."/".$historial_item['art_id']?>">Eliminar</a></td>
+             <td><a  onclick="myBtn('<?php echo $historial_item['his_id']; ?>')">Eliminar</a></td>
             </tr>
             <?php $i++; endforeach ?>
           </tbody>
@@ -135,3 +135,36 @@
 
 </div>
 <!-- /. PAGE WRAPPER  -->
+
+
+
+
+
+<div  id="myModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+        <?php echo form_open(base_url().'articulo/eliminarhistorial') ?>
+      
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación de Eliminación</h5>
+      </div>
+      <div class="modal-body">
+            <input type="hidden" class="form-control" name="art_id" value="<?php echo $item['art_id']; ?>">
+            <input type="hidden" class="form-control" name="his_id" value="" id="his_id">
+          <div class="form-group">
+            <label for="pwd">Clave de Usuario:</label>
+            <input type="password" class="form-control" name="usu_password">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Confirmar</button>
+      </div>
+    </div>
+       <?php echo form_close(); ?>
+           
+  </div>
+</div>
+  </div>
+</div>
+
