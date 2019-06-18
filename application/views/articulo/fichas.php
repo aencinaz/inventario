@@ -1,4 +1,7 @@
-  <div id="page-wrapper" >
+    
+              
+
+                <div id="page-wrapper" >
 
     <ul class="breadcrumb">
       <li><a href="<?php echo base_url();?>">Inicio</a></li>
@@ -7,15 +10,14 @@
     </ul>
     <!-- /. breadcrumb  -->
     
-    
+ 
     <hr />  
+
 
 
     <!-- Advanced Tables -->
     <div class="panel panel-primary">
       <div class="panel-heading">
-
-        
         Listado de Articulos
       </div>
       <div class="panel-body">
@@ -48,7 +50,7 @@
               <td><?php echo $articulos['res_apellido']." ".$articulos['res_nombre']; ?></td>
               <td><?php echo $articulos['pro_nombre']; ?></td>
               <td><a href="<?php echo base_url()."articulo/ficha/".$articulos['art_id']?>">Ficha</a></td>
-          >
+          
             </tr>
             <?php $i++; endforeach ?>
           </tbody>

@@ -72,9 +72,24 @@ class Articulo extends CI_Controller {
         $this->image_lib->resize();
     }
 
-	public function index()
+	public function index($mensaje = false)
 	{
 		$data['menu']="articulo";
+
+		if($mensaje == "error")
+			$mensaje = array('mensaje' =>  'No se pudo completar la operación.',
+							 'class' =>  	'danger',
+				             'strong' =>  	'Error!'
+			 );
+
+		if($mensaje == "success")
+			$mensaje = array('mensaje' =>  'Registros Actualizados.',
+							 'class' => 	'success',
+				             'strong' =>  	'Aceptado!'
+			 );
+		$data['mensaje']=$mensaje;
+
+
 		$this->load->view('cabecera',$data);
 		$data['item'] = $this->articulo_model->get_articulo();
 		$this->load->view('articulo/index',$data);
@@ -164,20 +179,31 @@ class Articulo extends CI_Controller {
 	}
 
 
-	public function eliminar($id)
+	public function eliminar()
 	{
-		
-		$this->articulo_model->del_articulo($id);
-		redirect(base_url()."articulo", 'refresh');
-	}
+		$this->load->model('usuario_model');				
+		$id_articulo=$this->input->post('art_id');
+		$user_data=$this->usuario_model->get_usuario_access($this->session->userdata('login'));
+		$id_articulo=$this->input->post('art_id');
 
+		if($user_data['usu_password']== md5($this->input->post('usu_password')))
+			{if($this->articulo_model->del_articulo($id_articulo))
+				{redirect(base_url()."articulo/index/success", 'refresh');}}
+			redirect(base_url()."articulo/index/error", 'refresh');
+	}
+	
 		public function eliminarhistorial()
 	{
-		
-		$this->articulo_model->del_articulo_historial();
+		$this->load->model('usuario_model');				
+		$user_data=$this->usuario_model->get_usuario_access($this->session->userdata('login'));
+		$id_articulo=$this->input->post('art_id');
+		if($user_data['usu_password']== md5($this->input->post('usu_password')))
+			{
+				$this->articulo_model->del_articulo_historial();
+				redirect(base_url()."articulo/ficha/".$id_articulo, 'refresh');
+			}
 		redirect(base_url()."articulo/ficha/".$id_articulo, 'refresh');
 	}
-
 
 	public function pase()
 		{

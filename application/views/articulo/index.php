@@ -5,11 +5,18 @@
       <li class="active">Articulos</li>
     </ul>
     <!-- /. breadcrumb  -->
-    
-    
+               <?php if($mensaje!= FALSE){ ?>
+                <div class="row">
+                <div class="col-md-12">
+                  <div class="bs-component">
+                    <div class="alert alert-dismissible alert-<?php echo $mensaje['class']; ?>">
+                      <button class="close" type="button" data-dismiss="alert">×</button><strong><?php echo $mensaje['strong']; ?>!</strong> <?php echo $mensaje['mensaje']; ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <?php } ?>   
     <hr />  
-
-
     <!-- Advanced Tables -->
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -46,8 +53,8 @@
               <td><?php echo $articulos['dep_nombre']; ?></td>
               <td><?php echo $articulos['pro_nombre']; ?></td>
               <td><a href="<?php echo base_url()."articulo/editar/".$articulos['art_id']?>">Editar</a></td>
-              <td><a href="<?php echo base_url()."articulo/eliminar/".$articulos['art_id']?>">Eliminar</a></td>
-            </tr>
+              <td><a  onclick="myBtn('<?php echo $articulos['art_id']; ?>')">Eliminar</a></td>
+        </tr>
             <?php $i++; endforeach ?>
           </tbody>
         </table>
@@ -66,3 +73,33 @@
 
 </div>
   <!-- /. PAGE WRAPPER  -->
+
+
+
+<div  id="myModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+        <?php echo form_open(base_url().'articulo/eliminar') ?>
+      
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación de Eliminación</h5>
+      </div>
+      <div class="modal-body">
+            <input type="hidden" class="form-control" name="art_id" id="his_id">
+          <div class="form-group">
+            <label for="pwd">Clave de Usuario:</label>
+            <input type="password" class="form-control" name="usu_password">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Confirmar</button>
+      </div>
+    </div>
+       <?php echo form_close(); ?>
+           
+  </div>
+</div>
+  </div>
+</div>
+
