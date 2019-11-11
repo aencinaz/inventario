@@ -29,7 +29,7 @@ class Clasificacion_model extends CI_Model {
 			$this->db->where('cla_id', $clas_id);
 		return $this->db->update('clasificaciones', $data);;
 	}
-	public function del_clasificacion($clas_id)
+	public function del_clasificacion($cla_id)
 	{
 		return $this->db->delete('clasificaciones', array('cla_id' => $cla_id)); 
 	

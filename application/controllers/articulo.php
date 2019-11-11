@@ -123,7 +123,6 @@ class Articulo extends CI_Controller {
 				$this->load->model('proyecto_model');
 				$data['item'] = $this->clasificacion_model->get_clasificacion();
 				$data['proyectos'] = $this->proyecto_model->get_proyecto();
-
 				$data['menu']="articulo";
 				$this->load->view('cabecera',$data);
 				$this->load->view('articulo/alta',$data);

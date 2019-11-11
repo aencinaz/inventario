@@ -53,7 +53,7 @@ class Articulo_model extends CI_Model {
 			);
 
 		$this->db->insert('articulos', $data);
-		
+	
 		$data = array('dep_id' => '0',
 			'art_id' => $this->db->insert_id(),
 			'his_tipo' => 'Alta',
